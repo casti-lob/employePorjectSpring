@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<div th:replace="layout/head :: head"></div>
+<body>
+	
+<nav th:replace="layout/menu :: menuJacaranda"></nav>
+<div class="container">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">name</th>
+      <th scope="col">address</th>
+      <th scope="col">city</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="company:${listCompanies}">
+      <td th:text="${company.id}"></td>
+      <td th:text="${company.name}"></td>
+      <td th:text="${company.address}"></td>
+      <td th:text="${company.city}"></td>
+    </tr>
+    
+  </tbody>
+</table>
+</div>
+<div th:insert="layout/footer :: pie"></div>
+</body>
+</html>
