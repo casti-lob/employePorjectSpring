@@ -3,13 +3,15 @@ package com.jacaranda.employeeProject.model;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "company")
 public class Company {
-	@Id
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	private String name;
