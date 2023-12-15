@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.jacaranda.employeeProject.model.Company;
@@ -39,4 +40,26 @@ public class CompanyController {
 		return "addCompany";
 	}
 	
+	@GetMapping("/updateCompany/{id}")
+	public String updateCompany(Model model, @PathVariable Integer id) {
+		Company updateCompany = companyService.getCompany(id).orElse(null);
+		
+		model.addAttribute("updateCompany", updateCompany);
+		return "updateCompany";
+				
+	}
+	
+	@PostMapping("/updateCompany/submit")
+	public String updateCompanySubmit(Model model, @ModelAttribute("updateCompany") Company company) {
+		
+		if(!companyService.updateCompany(company)) {
+			model.addAttribute("msg", "No existe");
+			
+		}else {
+			
+			model.addAttribute("msg", "Actualizado con exito");
+		}
+		
+		return "updateCompany";
+	}
 }

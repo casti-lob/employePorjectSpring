@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<div th:replace="layout/head :: head"></div>
+
+<body>
+	<nav th:replace="layout/menu :: menuJacaranda"></nav>
+	<h1>Añade una compañía</h1>
+	<div th:text="${msg}" role="alert">
+ 	
+	</div>
+	<form th:action="@{/updateCompany/submit}" th:object="${updateCompany}" method="post">
+		<input th:field="*{id}" type="number" hidden>
+		<p>Nombre <input th:field="*{name}" type="text"> </p>
+		<p>Dirección <input th:field="*{address}" type="text"> </p>
+		<p>Ciudad <input th:field="*{city}" type="text"> </p>
+		<button type="submit">Crear</button>
+	</form>
+
+	<div th:insert="layout/footer :: pie"></div>
+	
+	
+
+</body>
+</html>

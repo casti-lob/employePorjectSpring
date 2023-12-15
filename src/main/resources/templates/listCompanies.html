@@ -12,6 +12,7 @@
       <th scope="col">name</th>
       <th scope="col">address</th>
       <th scope="col">city</th>
+      <th scope="col">Actualizar</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +21,7 @@
       <td th:text="${company.name}"></td>
       <td th:text="${company.address}"></td>
       <td th:text="${company.city}"></td>
+      <td> <a th:href="@{'/updateCompany/'+${company.id}}"><button>Actualizar</button></a></td>
     </tr>
     
   </tbody>
