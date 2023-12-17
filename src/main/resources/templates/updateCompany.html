@@ -5,7 +5,7 @@
 <body>
 	<nav th:replace="layout/menu :: menuJacaranda"></nav>
 	<h1>Añade una compañía</h1>
-	<div th:text="${msg}" role="alert">
+	<div  th:classappend="${class}" th:text="${msg}" role="alert">
  	
 	</div>
 	<form th:action="@{/updateCompany/submit}" th:object="${updateCompany}" method="post">

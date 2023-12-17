@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<div th:replace="layout/head :: head"></div>
+<body>
+	
+<nav th:replace="layout/menu :: menuJacaranda"></nav>
+<div class="container">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">First name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+        <th scope="col">Gender</th>
+      <th scope="col">Date of birth</th>
+      <th scope="col">Id company</th>
+      <th scope="col">Password</th>
+      <th scope="col">Role</th>
+      <th scope="col">Actualizar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="employee:${listEmployee}">
+      <td th:text="${employee.id}"></td>
+      <td th:text="${employee.firstName}"></td>
+      <td th:text="${employee.lastName}"></td>
+      <td th:text="${employee.email}"></td>
+      <td th:text="${employee.gender}"></td>
+      <td th:text="${employee.dateOfBirth}"></td>
+      <td th:text="${employee.company.getId}"></td>
+      <td th:text="${employee.password}"></td>
+      <td th:text="${employee.role}"></td>
+      <td> <a th:href="@{'/updateEmployee/'+${employee.id}}"><button>Actualizar</button></a></td>
+    </tr>
+    
+  </tbody>
+</table>
+</div>
+<div th:insert="layout/footer :: pie"></div>
+</body>
+</html>

@@ -54,10 +54,12 @@ public class CompanyController {
 		
 		if(!companyService.updateCompany(company)) {
 			model.addAttribute("msg", "No existe");
+			model.addAttribute("class", "alert alert-danger");
 			
 		}else {
 			
 			model.addAttribute("msg", "Actualizado con exito");
+			model.addAttribute("class", "alert alert-success");
 		}
 		
 		return "updateCompany";

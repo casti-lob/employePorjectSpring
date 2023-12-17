@@ -1,11 +1,13 @@
 package com.jacaranda.employeeProject.model;
 
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,6 +19,9 @@ public class Company {
 	private String name;
 	private String address;
 	private String city;
+	
+	@OneToMany(mappedBy = "company")
+	private List<Employee> employees;
 	
 	public Company() {
 		super();

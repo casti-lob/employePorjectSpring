@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<div th:replace="layout/head :: head"></div>
+
+<body>
+	<nav th:replace="layout/menu :: menuJacaranda"></nav>
+	<h1>Error</h1>
+	<div  th:classappend="${class}" th:text="${msg}" role="alert">
+ 	
+	</div>
+	
+
+	<div th:insert="layout/footer :: pie"></div>
+	
+	
+
+</body>
+</html>

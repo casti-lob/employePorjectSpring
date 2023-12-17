@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<div th:replace="layout/head :: head"></div>
+
+<body>
+	<nav th:replace="layout/menu :: menuJacaranda"></nav>
+	<h1>Actualiza el empleado</h1>
+	<div  th:classappend="${class}" th:text="${msg}" role="alert">
+ 	
+	</div>
+	<form th:action="@{/updateEmployee/submit}" th:object="${updateEmployee}" method="post">
+		<input th:field="*{id}" type="number" hidden>
+		<p>Nombre <input th:field="*{firstName}" type="text"> </p>
+		<p>Apellido <input th:field="*{lastName}" type="text"> </p>
+		<p>Email <input th:field="*{email}" type="email"> </p>
+		<p>Genero <select th:field="*{gender}">
+			<option value="Male">Masculino</option>
+			<option value="Female">Femenino</option>
+			<option value="Bigender">Indefinido</option>
+		</select> </p>
+		<p>Fecha de nacimiento <input th:field="*{dateOfBirth}" type="date"> </p>
+		<p>Compañia <select th:field="*{company}" >
+			<option th:each="c:${listCompany}" th:value="${c.id}" th:text="${c.name}"></option>
+		</select> </p>
+		<p>Contraseña <input th:field="*{password}" type="password"> </p>
+		<p>Rol <select th:field="*{role}">
+			<option value="ADMIN">Admin</option>
+			<option value="USER">Usuario</option>
+		</select> </p>
+		<button type="submit">Actualizar</button>
+	</form>
+
+	<div th:insert="layout/footer :: pie"></div>
+	
+	
+
+</body>
+</html>
