@@ -25,7 +25,7 @@ public class Employee {
 	private String gender;
 	private Date dateOfBirth;
 	@ManyToOne
-	@JoinColumn(name ="id_company")
+	@JoinColumn(name ="idCompany")
 	private Company company;
 	private String password;
 	private String role;

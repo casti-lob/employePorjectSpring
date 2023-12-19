@@ -1,14 +1,17 @@
 package com.jacaranda.employeeProject.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jacaranda.employeeProject.model.Company;
 import com.jacaranda.employeeProject.model.Employee;
@@ -25,9 +28,15 @@ public class EmployeeController {
 	private CompanyService companyService;
 	
 	@GetMapping("/listEmployee")
-	public String listEmployee(Model model) {
-		List<Employee> listEmployee = employeeService.getEmployees();
+	public String listEmployee(Model model, @RequestParam("pageNumber") Optional<Integer> pageNumber
+			,@RequestParam("sizeNumber") Optional<Integer> sizeNumber
+			) {
+		Page<Employee> listEmployee = employeeService.getEmployees(pageNumber.orElse(1),sizeNumber.orElse(10));
 		model.addAttribute("listEmployee", listEmployee);
+		model.addAttribute("totalItems", listEmployee.getTotalElements());
+		model.addAttribute("currentPage", pageNumber.orElse(1));
+		model.addAttribute("totalPages", listEmployee.getTotalPages());
+
 		return "employee/listEmployee";
 	}
 	
