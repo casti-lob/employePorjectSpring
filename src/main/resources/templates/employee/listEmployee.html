@@ -9,15 +9,15 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th scope="col"><a th:href="@{'/listEmployee?sortField=id'}">id</a> </th>
-					<th scope="col"><a th:href="@{'/listEmployee?sortField=firstName'}">First name</a></th>
-					<th scope="col"><a th:href="@{'/listEmployee?sortField=lastName'}">Last Name</a></th>
-					<th scope="col"><a th:href="@{'/listEmployee?sortField=email'}">Email</a></th>
-					<th scope="col"><a th:href="@{'/listEmployee?sortField=gender'}">Gender</th>
-					<th scope="col"><a th:href="@{'/listEmployee?sortField=dateOfBirth'}">Date of birth</a></th>
-					<th scope="col"><a th:href="@{'/listEmployee?sortField=idCompany'}">Id company</a></th>
-					<th scope="col"><a th:href="@{'/listEmployee?sortField=password'}">Password</a></th>
-					<th scope="col"><a th:href="@{'/listEmployee?sortField=role&'}">Role</a></th>
+					<th scope="col"><a th:href="@{'/listEmployee?sortField=id&&pageNumber='+${currentPage}}">id</a> </th>
+					<th scope="col"><a th:href="@{'/listEmployee?sortField=firstName&&pageNumber='+${currentPage}}">First name</a></th>
+					<th scope="col"><a th:href="@{'/listEmployee?sortField=lastName&&pageNumber='+${currentPage}}">Last Name</a></th>
+					<th scope="col"><a th:href="@{'/listEmployee?sortField=email&&pageNumber='+${currentPage}}">Email</a></th>
+					<th scope="col"><a th:href="@{'/listEmployee?sortField=gender&&pageNumber='+${currentPage}}">Gender</th>
+					<th scope="col"><a th:href="@{'/listEmployee?sortField=dateOfBirth&&pageNumber='+${currentPage}}">Date of birth</a></th>
+					<th scope="col"><a th:href="@{'/listEmployee?sortField=idCompany&&pageNumber='+${currentPage}}">Id company</a></th>
+					<th scope="col"><a th:href="@{'/listEmployee?sortField=password&&pageNumber='+${currentPage}}">Password</a></th>
+					<th scope="col"><a th:href="@{'/listEmployee?sortField=role&&pageNumber='+${currentPage}}">Role</a></th>
 					<th scope="col">Actualizar</th>
 				</tr>
 			</thead>
