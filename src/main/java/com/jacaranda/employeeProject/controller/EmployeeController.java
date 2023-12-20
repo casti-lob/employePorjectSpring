@@ -29,9 +29,9 @@ public class EmployeeController {
 	
 	@GetMapping("/listEmployee")
 	public String listEmployee(Model model, @RequestParam("pageNumber") Optional<Integer> pageNumber
-			,@RequestParam("sizeNumber") Optional<Integer> sizeNumber
+			,@RequestParam("sizeNumber") Optional<Integer> sizeNumber, @RequestParam("sortField") Optional<String> sortField
 			) {
-		Page<Employee> listEmployee = employeeService.getEmployees(pageNumber.orElse(1),sizeNumber.orElse(10));
+		Page<Employee> listEmployee = employeeService.getEmployees(pageNumber.orElse(1),sizeNumber.orElse(10),sortField.orElse("firstName"));
 		model.addAttribute("listEmployee", listEmployee);
 		model.addAttribute("totalItems", listEmployee.getTotalElements());
 		model.addAttribute("currentPage", pageNumber.orElse(1));

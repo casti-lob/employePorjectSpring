@@ -9,15 +9,15 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th scope="col">id</th>
-					<th scope="col">First name</th>
-					<th scope="col">Last Name</th>
-					<th scope="col">Email</th>
-					<th scope="col">Gender</th>
-					<th scope="col">Date of birth</th>
-					<th scope="col">Id company</th>
-					<th scope="col">Password</th>
-					<th scope="col">Role</th>
+					<th scope="col"><a th:href="@{'/listEmployee?sortField=id'}">id</a> </th>
+					<th scope="col"><a th:href="@{'/listEmployee?sortField=firstName'}">First name</a></th>
+					<th scope="col"><a th:href="@{'/listEmployee?sortField=lastName'}">Last Name</a></th>
+					<th scope="col"><a th:href="@{'/listEmployee?sortField=email'}">Email</a></th>
+					<th scope="col"><a th:href="@{'/listEmployee?sortField=gender'}">Gender</th>
+					<th scope="col"><a th:href="@{'/listEmployee?sortField=dateOfBirth'}">Date of birth</a></th>
+					<th scope="col"><a th:href="@{'/listEmployee?sortField=idCompany'}">Id company</a></th>
+					<th scope="col"><a th:href="@{'/listEmployee?sortField=password'}">Password</a></th>
+					<th scope="col"><a th:href="@{'/listEmployee?sortField=role&'}">Role</a></th>
 					<th scope="col">Actualizar</th>
 				</tr>
 			</thead>
